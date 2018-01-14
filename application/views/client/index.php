@@ -23,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/"; ?>normalize.css">
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/"; ?>bootstrap.css">
-	<!-- Owl -->
+		<!-- Owl -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/"; ?>owl.css">
 	<!-- Animate.css -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/"; ?>animate.css">
@@ -72,7 +72,7 @@
 					<div class="row">
 						<div class="col-md-12 text-center">
 							<h3 class="light white">Take care of your body.</h3>
-							<h1 class="white typed">It's the only place you have to live.</h1>
+							<h1 class="white typed"><?php echo ($vote) ? "Menurut anda mana yang harus di bangun?": "Terima kasih karena telah berpartisipasi" ?></h1>
 							<span class="typed-cursor">|</span>
 						</div>
 					</div>
@@ -80,127 +80,7 @@
 			</div>
 		</div>
 	</header>
-	<section>
-		<div class="cut cut-top"></div>
-		<div class="container">
-			<div class="row intro-tables">
-				<div class="col-md-4">
-					<div class="intro-table intro-table-first">
-						<h5 class="white heading">Today's Schedule</h5>
-						<div class="owl-carousel owl-schedule bottom">
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="intro-table intro-table-hover">
-						<h5 class="white heading hide-hover">Premium Membership</h5>
-						<div class="bottom">
-							<h4 class="white heading small-heading no-margin regular">Register Today</h4>
-							<h4 class="white heading small-pt">20% Discount</h4>
-							<a href="#" class="btn btn-white-fill expand">Register</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="intro-table intro-table-third">
-						<h5 class="white heading">Happy Clients</h5>
-						<div class="owl-testimonials bottom">
-							<div class="item">
-								<h4 class="white heading content">I couldn't be more happy with the results!</h4>
-								<h5 class="white heading light author">Adam Jordan</h5>
-							</div>
-							<div class="item">
-								<h4 class="white heading content">I can't believe how much better I feel!</h4>
-								<h5 class="white heading light author">Greg Pardon</h5>
-							</div>
-							<div class="item">
-								<h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
-								<h5 class="white heading light author">Christina Goldman</h5>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<?php ($vote) ? $this->load->view('client\vote') : ""; ?>
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
@@ -440,6 +320,7 @@
 		</ul>
 		<a href="#" class="close-link"><i class="arrow_up"></i></a>
 	</div>
+	<?php ($vote) ? $this->load->view('client\modal') : ""; ?>
 	<!-- Scripts -->
 	<script src="<?php echo base_url()."assets/js/"; ?>jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>owl.carousel.min.js"></script>

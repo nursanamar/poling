@@ -33,6 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/fonts/"; ?>eleganticons/et-icons.css">
 	<!-- Main style -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/"; ?>cardio.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/"; ?>dataTables.bootstrap.css">
 </head>
 
 <body>
@@ -88,33 +89,7 @@
 				<h4 class="light muted">Achieve the best results with our wide variety of training options!</h4>
 			</div>
 			<div class="row services">
-				<div class="col-md-4">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?php echo base_url()."assets/img/"; ?>icons/heart-blue.png" alt="" class="icon">
-						</div>
-						<h4 class="heading">Cardio Training</h4>
-						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?php echo base_url()."assets/img/"; ?>icons/guru-blue.png" alt="" class="icon">
-						</div>
-						<h4 class="heading">Yoga Pilates</h4>
-						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?php echo base_url()."assets/img/"; ?>icons/weight-blue.png" alt="" class="icon">
-						</div>
-						<h4 class="heading">Power Training</h4>
-						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
-					</div>
-				</div>
+				<?php $this->load->view('client/tabel') ?>
 			</div>
 		</div>
 		<div class="cut cut-bottom"></div>
@@ -327,8 +302,31 @@
 	<script src="<?php echo base_url()."assets/js/"; ?>bootstrap.min.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>wow.min.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>typewriter.js"></script>
+	<script src="<?php echo base_url()."assets/js/"; ?>jquery.dataTables.js"></script>
+	<script src="<?php echo base_url()."assets/js/"; ?>dataTables.bootstrap.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>jquery.onepagenav.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>main.js"></script>
 </body>
-
+<script type="text/javascript">
+var sTable;
+$(document).ready(function() {
+	$("#tableview").show();
+	 sTable = $('#tableview').DataTable();
+// 		 "aaSorting":[[0, "desc"]],
+// "processing": true,
+// "serverSide": true,
+// "ajax": {
+// 	'url': '<?php echo base_url()."adm/datatable/".$this->uri->segment(2); ?>',
+// 	'type': 'POST',
+// },
+// "columns": [
+// 	{data : 'kecamatan'},
+	// < foreach ($data as $value) {
+// 		echo "{data :'".$value['judul']."'},";
+// 	} ?>
+//
+// ],
+// });
+});
+</script>
 </html>

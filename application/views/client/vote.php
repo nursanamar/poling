@@ -4,7 +4,7 @@
     <div class="row intro-tables">
       <?php foreach ($data as $key => $value) { ?>
         <div class="col-md-<?php echo $col ?>">
-          <div class="intro-table intro-table-hover" style="background-image:url(<?php echo $value['gambar']; ?>)">
+          <div class="intro-table intro-table-hover" style="background-image:url(<?php echo base_url()."assets/img/portfolio/".$value['gambar']; ?>)">
             <h5 class="white heading hide-hover"><?php echo $value['judul']; ?></h5>
             <div class="bottom">
               <h4 class="white heading small-heading no-margin regular">Vote</h4>

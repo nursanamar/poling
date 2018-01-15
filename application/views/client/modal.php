@@ -6,10 +6,10 @@
           <h1><?php echo $value['judul'] ?></h1>
         </div>
         <div class="row">
-          <img src="<?php echo $value['gambar']; ?>" alt="" style="max-width:80%">
+          <img src="<?php echo base_url()."assets/img/portfolio/".$value['gambar']; ?>" alt="" style="max-width:80%">
         </div>
         <div class="row">
-          <?php echo $value['desc'] ?>
+          <?php echo $value['description'] ?>
         </div>
       </div>
     </div>

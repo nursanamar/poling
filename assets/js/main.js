@@ -106,7 +106,7 @@ jQuery(function($) {
 	// Mobile Nav
 	$('body').on('click', 'nav .navbar-toggle', function() {
 		event.stopPropagation();
-		$('.mobile-nav').addClass('active');
+		$('#nav-mobile').addClass('active');
 	});
 
 	$('body').on('click', '.mobile-nav a', function(event) {

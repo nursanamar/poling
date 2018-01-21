@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cardio: Free One Page Template by Luka Cvetinovic</title>
+	<title>Poling : Pembangunan</title>
 	<meta name="description" content="Cardio is a free one page template made exclusively for Codrops by Luka Cvetinovic" />
 	<meta name="keywords" content="html template, css, free, one page, gym, fitness, web design" />
 	<meta name="author" content="Luka Cvetinovic for Codrops" />
@@ -56,10 +56,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="#intro">Intro</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#team">Team</a></li>
-					<li><a href="#pricing">Pricing</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
+					<li><a href="#services">Hasil</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -72,8 +69,14 @@
 				<div class="header-text">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<h3 class="light white">Take care of your body.</h3>
-							<h1 class="white typed"><?php echo ($vote) ? "Menurut anda mana yang harus di bangun?": "Terima kasih karena telah berpartisipasi" ?></h1>
+							<h3 class="light white">Poling Pembangunan</h3>
+							<h1 class="white typed"><?php
+								if ($status) {
+									echo ($vote) ? "Menurut anda mana yang harus di bangun?": "Terima kasih karena telah berpartisipasi";
+								}else{
+									echo "Poling sudah ditutup";
+								}
+							 ?></h1>
 							<span class="typed-cursor">|</span>
 						</div>
 					</div>
@@ -85,141 +88,11 @@
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
-				<h2>Services</h2>
-				<h4 class="light muted">Achieve the best results with our wide variety of training options!</h4>
+				<h2>Jumlah Vote</h2>
+				<h4 class="light muted">Perolehan Vote sementara perkecamatan</h4>
 			</div>
 			<div class="row services">
 				<?php $this->load->view('client/tabel') ?>
-			</div>
-		</div>
-		<div class="cut cut-bottom"></div>
-	</section>
-	<section id="team" class="section gray-bg">
-		<div class="container">
-			<div class="row title text-center">
-				<h2 class="margin-top">Team</h2>
-				<h4 class="light muted">We're a dream team!</h4>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('img/team/team-cover1.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">$69.00</h3>
-								<h5 class="light light-white">1 - 5 sessions / month</h5>
-							</div>
-						</div>
-						<img src="<?php echo base_url()."assets/img/"; ?>team/team3.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4>Ben Adamson</h4>
-							<h5 class="muted regular">Fitness Instructor</h5>
-						</div>
-						<button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('<?php echo base_url()."assets/img/"; ?>team/team-cover2.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">$69.00</h3>
-								<h5 class="light light-white">1 - 5 sessions / month</h5>
-							</div>
-						</div>
-						<img src="<?php echo base_url()."assets/img/"; ?>team/team1.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4>Eva Williams</h4>
-							<h5 class="muted regular">Personal Trainer</h5>
-						</div>
-						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('<?php echo base_url()."assets/img/"; ?>team/team-cover3.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">$69.00</h3>
-								<h5 class="light light-white">1 - 5 sessions / month</h5>
-							</div>
-						</div>
-						<img src="<?php echo base_url()."assets/img/"; ?>team/team2.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4>John Phillips</h4>
-							<h5 class="muted regular">Personal Trainer</h5>
-						</div>
-						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="pricing" class="section">
-		<div class="container">
-			<div class="row title text-center">
-				<h2 class="margin-top white">Pricing</h2>
-				<h4 class="light white">Choose your favorite pricing plan and sign up today!</h4>
-			</div>
-			<div class="row no-margin">
-				<div class="col-md-7 no-padding col-md-offset-5 pricings text-center">
-					<div class="pricing">
-						<div class="box-main active" data-img="<?php echo base_url()."assets/img/"; ?>pricing1.jpg">
-							<h4 class="white">Yoga Pilates</h4>
-							<h4 class="white regular light">$850.00 <span class="small-font">/ year</span></h4>
-							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">Sign Up Now</a>
-							<i class="info-icon icon_question"></i>
-						</div>
-						<div class="box-second active">
-							<ul class="white-list text-left">
-								<li>One Personal Trainer</li>
-								<li>Big gym space for training</li>
-								<li>Free tools &amp; props</li>
-								<li>Free locker</li>
-								<li>Free before / after shower</li>
-							</ul>
-						</div>
-					</div>
-					<div class="pricing">
-						<div class="box-main" data-img="<?php echo base_url()."assets/img/"; ?>pricing2.jpg">
-							<h4 class="white">Cardio Training</h4>
-							<h4 class="white regular light">$100.00 <span class="small-font">/ year</span></h4>
-							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">Sign Up Now</a>
-							<i class="info-icon icon_question"></i>
-						</div>
-						<div class="box-second">
-							<ul class="white-list text-left">
-								<li>One Personal Trainer</li>
-								<li>Big gym space for training</li>
-								<li>Free tools &amp; props</li>
-								<li>Free locker</li>
-								<li>Free before / after shower</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="section section-padded blue-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="owl-twitter owl-carousel">
-						<div class="item text-center">
-							<i class="icon fa fa-twitter"></i>
-							<h4 class="white light">To enjoy the glow of good health, you must exercise.</h4>
-							<h4 class="light-white light">#health #training #exercise</h4>
-						</div>
-						<div class="item text-center">
-							<i class="icon fa fa-twitter"></i>
-							<h4 class="white light">To enjoy the glow of good health, you must exercise.</h4>
-							<h4 class="light-white light">#health #training #exercise</h4>
-						</div>
-						<div class="item text-center">
-							<i class="icon fa fa-twitter"></i>
-							<h4 class="white light">To enjoy the glow of good health, you must exercise.</h4>
-							<h4 class="light-white light">#health #training #exercise</h4>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -257,45 +130,43 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 text-center-mobile">
-					<h3 class="white">Reserve a Free Trial Class!</h3>
-					<h5 class="light regular light-white">Shape your body and improve your health.</h5>
-					<a href="#" class="btn btn-blue ripple trial-button">Start Free Trial</a>
-				</div>
-				<div class="col-sm-6 text-center-mobile">
-					<h3 class="white">Opening Hours <span class="open-blink"></span></h3>
-					<div class="row opening-hours">
-						<div class="col-sm-6 text-center-mobile">
-							<h5 class="light-white light">Mon - Fri</h5>
-							<h3 class="regular white">9:00 - 22:00</h3>
-						</div>
-						<div class="col-sm-6 text-center-mobile">
-							<h5 class="light-white light">Sat - Sun</h5>
-							<h3 class="regular white">10:00 - 18:00</h3>
-						</div>
-					</div>
+					<h3 class="white">Lorem ipsum dolor sit amet</h3>
+					<h5 class="light regular light-white">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</h5>
 				</div>
 			</div>
 			<div class="row bottom-footer text-center-mobile">
 				<div class="col-sm-8">
-					<p>&copy; 2015 All Rights Reserved. Powered by <a href="http://www.phir.co/">PHIr</a> exclusively for <a href="http://tympanus.net/codrops/">Codrops</a></p>
+					<p>&copy; 2017 reprehenderit in voluptate velit esse cillum dolore </p>
+				</div>
+				<div id="demo">
+
 				</div>
 				<div class="col-sm-4 text-right text-center-mobile">
 					<ul class="social-footer">
-						<li><a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a></li>
+						<li><i class="fa fa-facebook"></i></li>
+						<li><i class="fa fa-twitter"></i></li>
+						<li><i class="fa fa-google-plus"></i></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</footer>
+	<form id="makeVote" action="<?php echo base_url()."vote/".$idVote ?>" method="post">
+		<input type="hidden" name="idOption">
+		<input type="hidden" name="kecamatan">
+		<input type="hidden" name="kabupaten">
+	</form>
 	<!-- Holder for mobile navigation -->
-	<div class="mobile-nav">
+	<div class="mobile-nav" id="notsame">
+
+	</div>
+
+	<?php ($vote) ? $this->load->view('client\modal') : ""; ?>
+	<div class="mobile-nav" id="nav-mobile">
 		<ul>
 		</ul>
 		<a href="#" class="close-link"><i class="arrow_up"></i></a>
 	</div>
-	<?php ($vote) ? $this->load->view('client\modal') : ""; ?>
 	<!-- Scripts -->
 	<script src="<?php echo base_url()."assets/js/"; ?>jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>owl.carousel.min.js"></script>
@@ -309,7 +180,38 @@
 </body>
 <script type="text/javascript">
 var sTable;
+var kecamatan = 'a';
+var kabupaten = 'a';
+
+
+function vote(idVote) {
+	$('input[name=idOption]').val(idVote);
+	$('input[name=kecamatan]').val(kecamatan);
+	$('input[name=kabupaten]').val(kabupaten);
+	$('#makeVote').submit();
+}
+
 $(document).ready(function() {
+
+
+
+	navigator.geolocation.getCurrentPosition(showPosition);
+	function showPosition(position) {
+		var lat = position.coords.latitude;
+		var lon = position.coords.longitude;
+		$.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'1&components=administrative_area_level_2&language=id&result_type=administrative_area_level_3&key=AIzaSyB9gAn0rzglRCeE-q18BZyzMz_oNymbRvA',function(res){
+			kecamatan = res.results[0].address_components[0].long_name;
+			kabupaten = res.results[0].address_components[1].long_name;
+			console.log(kecamatan,kabupaten);
+			if (kabupaten === '<?php echo $kabupaten ?>') {
+				console.log("assss");
+			} else {
+				$('#notsame').addClass('active');
+			}
+		});
+	}
+
+
 	$("#tableview").show();
 	 sTable = $('#tableview').DataTable();
 // 		 "aaSorting":[[0, "desc"]],

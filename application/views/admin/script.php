@@ -1,5 +1,8 @@
 <script type="text/javascript">
 var sTable;
+var map;
+
+
 
 function hapus(idVote) {
   $.get('<?php echo base_url()."admin/vote/hapus/" ?>'+idVote,function() {
@@ -20,6 +23,7 @@ function buka(idVote) {
 }
 
 $(document).ready(function() {
+
   $("#vote").show();
   $('#tableview').DataTable();
    sTable = $('#vote').DataTable({

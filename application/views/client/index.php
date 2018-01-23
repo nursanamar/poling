@@ -151,10 +151,11 @@
 			</div>
 		</div>
 	</footer>
-	<form id="makeVote" action="<?php echo base_url()."vote/".$idVote ?>" method="post">
+	<form id="makeVote" action="<?php echo base_url()."dovote/".$idVote ?>" method="post">
 		<input type="hidden" name="idOption">
 		<input type="hidden" name="kecamatan">
 		<input type="hidden" name="kabupaten">
+		<input type="hidden" name="link" value="<?php echo $this->uri->segment(2) ?>">
 	</form>
 	<!-- Holder for mobile navigation -->
 	<div class="mobile-nav" id="notsame">

@@ -127,8 +127,16 @@ class Vote extends CI_Model {
   public function makeVote($data)
   {
     $this->db->insert('pemilih',$data);
-    $this->db->set('total','total+1');
-    $this->db->where('idVote',$data['idVote']);
+    $this->increseVote($data['idVote']);
+  }
+
+  public function increseVote($vote)
+  {
+    // $this->db->select('total');
+    // $this->db->where('idVote',$vote);
+    // $this->db->from('vote');
+    $this->db->set('total','total+1',false);
+    $this->db->where('idVote',$vote);
     $this->db->update('vote');
   }
 

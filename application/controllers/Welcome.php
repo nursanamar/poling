@@ -49,7 +49,28 @@ class Welcome extends CI_Controller {
 			$data['col'] = 4;
 		}
 		$this->load->view('client/index',$data);
-		// var_dump($data);
+		// var_dump($this->uri->segment(2));
+	}
+
+	public function linkVote($link)
+	{
+		$lastvote = $this->db->select('idVote')->where('link',$link)->get('vote')->result_array();
+    $vote = $lastvote[0]['idVote'];
+		$data['status'] = $this->vote->isOpen($vote);
+		$this->voted = ($data['status']) ? $this->voted : false;
+		$data['vote'] = $this->voted;
+		$data['kabupaten'] = ($vote === null) ? null : $this->vote->kabupaten($vote);
+		$data['data'] = $this->vote->voteList($vote);
+		$data['table'] = $this->vote->countVote($vote);
+		$data['idVote'] = $vote;
+
+		if (count($data['data']) <= 2) {
+			$data['col'] = 6;
+		}else {
+			$data['col'] = 4;
+		}
+		$this->load->view('client/index',$data);
+		// var_dump($this->input->cookie());
 	}
 
 	public function seed()
@@ -65,12 +86,15 @@ class Welcome extends CI_Controller {
 			'value' => 'voted',
 		);
 		$data = $this->input->post();
+		$link = ($data['link'] === "") ? '/' : "/vote/".$data['link'];
+		unset($data['link']);
 		$data['ipAddres'] = $this->input->ip_address();
 		$data['idVote'] = $vote;
 		$data['tanggal'] = date('Y-m-d');
 		$this->vote->makeVote($data);
-		setcookie('isVoted','voted',time()+60*60*24*30*12,"/");
-		redirect('/');
+		setcookie('isVoted','voted',time()+60*60*24*30*12,"/poling".$link);
+		redirect($link);
+		// var_dump($_COOKIE);
 	}
 
 

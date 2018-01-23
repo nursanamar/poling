@@ -40,7 +40,8 @@ $(document).ready(function() {
        {data : 'kabupaten'},
        {data : 'status'},
        {data : 'total'},
-       {data : 'aksi'}
+       {data : 'aksi'},
+       {data : 'link'}
       ]
    });
 

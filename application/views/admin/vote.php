@@ -15,6 +15,7 @@
                 <th>Status</th>
                 <th>Total vote</th>
                 <th>Opsi</th>
+                <th>Link</th>
               </tr>
             </thead>
             <tbody>

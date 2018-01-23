@@ -1,6 +1,6 @@
 <?php foreach ($data as $key => $value) { ?>
   <div class="mobile-nav" id="id<?php echo $key ?>">
-    <div class="row" style="overflow-y:scroll;max-height:100%">
+    <div class="row" style="overflow-y:scroll;max-height:80%">
       <div class="col-md-12" >
         <div class="row">
           <h1><?php echo $value['judul'] ?></h1>
@@ -10,10 +10,9 @@
             <img src="<?php echo base_url()."upload/".$value['gambar']; ?>" alt="" style="max-width:80%">
 
           </div>
-          <iframe class="col-sm-6 col-md-6" height="80%"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDwUZr6bwczKCgOOjWnHWeN50ePoqtpnUE&q=record+stores+in+Seattle" allowfullscreen>
-</iframe>
+          <div style="height:200px" class="col-sm-6 col-md-6" id="map<?php echo $key ?>">
+
+          </div>
         </div>
         <div class="row">
         </div>
@@ -23,11 +22,35 @@
           </div>
 
         </div>
+        <div class="row" style="min-height:10%">
+
+        </div>
       </div>
     </div>
     <a style="margin-top:10px" href="#" class="close-link"><i class="arrow_up"></i></a>
   </div>
 <?php } ?>
+<script>
+
+
+      function initMap() {
+        <?php foreach ($data as $key => $value) { ?>
+          <?php $latlng = explode(",",$value['lokasi']) ?>
+          var loc<?php echo $key ?> = {lat: <?php echo $latlng[0]; ?>, lng:  <?php echo $latlng[1]; ?>};
+          var map<?php echo $key ?> = new google.maps.Map(document.getElementById('map<?php echo $key ?>'), {
+            zoom: 7,
+            center: loc<?php echo $key ?>
+          });
+          var marker<?php echo $key ?> = new google.maps.Marker({
+            position: loc<?php echo $key ?>,
+            map: map<?php echo $key ?>
+          });
+         <?php } ?>
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAW7RwL3Db-Qjj71xs8ZW0xj6kvpZgT9AQ&callback=initMap">
+    </script>
 <script type="text/javascript">
   function detail(id) {
     $('#'+id).addClass('active').on('click',".close-link",function() {

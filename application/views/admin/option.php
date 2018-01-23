@@ -95,8 +95,8 @@
     <?php
       for ($i=1; $i <= $option ; $i++) { ?>
         var map<?php echo $i ?> = new google.maps.Map(document.getElementById('map<?php echo $i ?>'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat:  -4.302591077119676, lng: 117.39990234375},
+          zoom: 4
           });
         var marker<?php echo $i ?>;
         map<?php echo $i ?>.addListener('click',function(e) {
@@ -113,6 +113,7 @@
               map : map<?php echo $i ?>,
             });
             console.log(marker<?php echo $i ?>);
+            $('#lokasi<?php echo $i ?>').val(e.latLng.lat()+','+e.latLng.lng())
           }
           document.getElementById('lokasi<?php echo $i ?>').value = e.latLng.lat()+','+e.latLng.lng();
         });

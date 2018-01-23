@@ -64,11 +64,11 @@ class Admin extends CI_Controller {
     unset($post['submit']);
     $post['start'] = date('Y-m-d');
     $post['status'] = 'o';
+    $post['link'] = substr(uniqid(),6);
     $this->vote->addVote($post);
     $data['page'] = 'option';
     $lastvote = $this->db->select_max('idVote')->get('vote')->result_array();
     $data['vote'] = $lastvote[0]['idVote'];
-    $data['link'] = substr(uniqid(),6);
     $this->load->view('admin/index',$data);
   }
 

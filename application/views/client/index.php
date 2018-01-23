@@ -159,7 +159,10 @@
 	</form>
 	<!-- Holder for mobile navigation -->
 	<div class="mobile-nav" id="notsame">
-
+		<article>
+			<h2>Maaf</h2>
+			<p>Poling ini hanya untuk kabupaten <?php echo $kabupaten ?></p>
+		</article>
 	</div>
 
 	<?php ($vote) ? $this->load->view('client\modal') : ""; ?>

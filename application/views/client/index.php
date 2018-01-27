@@ -165,6 +165,13 @@
 		</article>
 	</div>
 
+	<div class="mobile-nav" id="geoerror">
+		<article>
+			<h2>Maaf</h2>
+			<p id="geoerrorm"></p>
+		</article>
+	</div>
+
 	<?php ($vote) ? $this->load->view('client\modal') : ""; ?>
 	<div class="mobile-nav" id="nav-mobile">
 		<ul>
@@ -198,8 +205,34 @@ function vote(idVote) {
 $(document).ready(function() {
 
 
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(showPosition,showError);
+	}else{
+		$('#geoerrorm').html("Browser anda tidak mendukung, gunakanlah broser lain");
+		$('#geoerror').addClass('active');
+	}
 
-	navigator.geolocation.getCurrentPosition(showPosition);
+	function showError(error) {
+		var x;
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x = "Anda harus menberikan Akses lokasi anda"
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x = "Kami tidak dapat menemukan lokasi anda"
+            break;
+        case error.TIMEOUT:
+            x = "Kami tidak dapat menemukan lokasi anda"
+            break;
+        case error.UNKNOWN_ERROR:
+            x = "An unknown error occurred."
+            break;
+    }
+		$('#geoerrorm').html(x);
+		$("#geoerror").addClass('active');
+}
+
+
 	function showPosition(position) {
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;

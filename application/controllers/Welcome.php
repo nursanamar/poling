@@ -112,7 +112,7 @@ class Welcome extends CI_Controller {
 		}else{
 			$pass = $this->vote->userPass($post['user']);
 			if (password_verify($post['pass'],$pass)) {
-				$this->session->set_userdata('status','login');
+				$this->session->set_userdata('username',$post['user']);
 				redirect('admin');
 			}else{
 				$this->session->set_flashdata('error','Password anda salah');

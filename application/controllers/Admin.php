@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
   {
     parent::__construct();
     // var_dump(isset($_SESION['status']));
-    if($this->session->has_userdata('status') === false){
+    if($this->session->has_userdata('username') === false){
       redirect('login');
     }
     $this->load->model('vote');
@@ -116,6 +116,23 @@ class Admin extends CI_Controller {
     $this->load->view('admin/index',$data);
   }
 
+  public function changePass()
+  {
+    $user = $this->session->userdata('username');
+    $pass = $this->vote->userPass($user);
+    $post = $this->input->post();
+
+    if (password_verify($post['old'],$pass)) {
+      $this->vote->changePass($user,$post['new']);
+      $this->session->set_flashdata('message',"Password berhasil diganti");
+    }else{
+      $this->session->set_flashdata('error',"Password lama anda salah");
+    }
+
+    redirect('admin/akun');
+
+  }
+
   public function openVote($vote)
   {
     $this->vote->openVote($vote);
@@ -123,7 +140,7 @@ class Admin extends CI_Controller {
 
   public function logout()
   {
-    $this->session->unset_userdata('status');
+    $this->session->unset_userdata('username');
     redirect('login');
   }
 }

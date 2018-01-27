@@ -185,4 +185,13 @@ class Vote extends CI_Model {
 
     return $result[0]['password'];
   }
+
+  public function changePass($user,$pass)
+  {
+    $hash = password_hash($pass,PASSWORD_DEFAULT);
+    $this->db->set('password',$hash);
+    $this->db->where('username',$user);
+    $this->db->update('admin');
+    
+  }
 }

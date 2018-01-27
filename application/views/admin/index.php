@@ -51,6 +51,7 @@
                   <li><a href="<?php echo base_url()."admin/" ?>"><i class="fa fa-home"></i> Home</span></a></li>
                   <li><a href="<?php echo base_url()."admin/vote" ?>"><i class="fa fa-home"></i>Vote</span></a></li>
                   <li><a href="<?php echo base_url()."admin/add" ?>"><i class="fa fa-home"></i>Buat Vote</span></a></li>
+                  <li><a href="<?php echo base_url()."admin/akun" ?>"><i class="fa fa-home"></i>Akun</span></a></li>
                 </ul>
               </div>
 
@@ -68,7 +69,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url() ?>admin/logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>

@@ -5,6 +5,10 @@ class Admin extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
+    // var_dump(isset($_SESION['status']));
+    if($this->session->has_userdata('status') === false){
+      redirect('login');
+    }
     $this->load->model('vote');
   }
   public function index($vote = null)
@@ -106,8 +110,20 @@ class Admin extends CI_Controller {
     $this->vote->closeVote($vote);
   }
 
+  public function openAcount()
+  {
+    $data['page'] = 'akun';
+    $this->load->view('admin/index',$data);
+  }
+
   public function openVote($vote)
   {
     $this->vote->openVote($vote);
+  }
+
+  public function logout()
+  {
+    $this->session->unset_userdata('status');
+    redirect('login');
   }
 }

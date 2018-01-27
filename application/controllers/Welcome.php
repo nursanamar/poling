@@ -97,5 +97,29 @@ class Welcome extends CI_Controller {
 		// var_dump($_COOKIE);
 	}
 
+	public function login()
+	{
+		$this->load->view('login');
+	}
+
+	public function validLogin()
+	{
+		$post = $this->input->post();
+		// var_dump($post);
+		if($this->vote->checkUsername($post['user'])){
+			$this->session->set_flashdata('error','Username anda salah');
+			$this->load->view('login');
+		}else{
+			$pass = $this->vote->userPass($post['user']);
+			if (password_verify($post['pass'],$pass)) {
+				$this->session->set_userdata('status','login');
+				redirect('admin');
+			}else{
+				$this->session->set_flashdata('error','Password anda salah');
+				$this->load->view('login');
+			}
+		}
+	}
+
 
 }

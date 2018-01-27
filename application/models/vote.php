@@ -163,4 +163,26 @@ class Vote extends CI_Model {
     $this->db->where('idVote',$vote);
     $this->db->update('vote');
   }
+
+  public function checkUsername($user)
+  {
+    $this->db->select('username');
+    $this->db->where('username',$user);
+    $this->db->from('admin');
+    $result = $this->db->get()->result_array();
+
+    // var_dump($result === array());
+
+    return ($result === array()) ? true : false;
+  }
+
+  public function userPass($user)
+  {
+    $this->db->select('password');
+    $this->db->where('username',$user);
+    $this->db->from('admin');
+    $result = $this->db->get()->result_array();
+
+    return $result[0]['password'];
+  }
 }

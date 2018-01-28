@@ -49,9 +49,9 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url()."admin/" ?>"><i class="fa fa-home"></i> Home</span></a></li>
-                  <li><a href="<?php echo base_url()."admin/vote" ?>"><i class="fa fa-home"></i>Vote</span></a></li>
-                  <li><a href="<?php echo base_url()."admin/add" ?>"><i class="fa fa-home"></i>Buat Vote</span></a></li>
-                  <li><a href="<?php echo base_url()."admin/akun" ?>"><i class="fa fa-home"></i>Akun</span></a></li>
+                  <li><a href="<?php echo base_url()."admin/vote" ?>"><i class="fa fa-check-square-o"></i>Vote</span></a></li>
+                  <li><a href="<?php echo base_url()."admin/add" ?>"><i class="fa fa-plus"></i>Buat Vote</span></a></li>
+                  <li><a href="<?php echo base_url()."admin/akun" ?>"><i class="fa fa-user"></i>Akun</span></a></li>
                 </ul>
               </div>
 

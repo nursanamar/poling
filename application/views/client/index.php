@@ -196,10 +196,16 @@ var kabupaten = 'a';
 
 
 function vote(idVote) {
-	$('input[name=idOption]').val(idVote);
-	$('input[name=kecamatan]').val(kecamatan);
-	$('input[name=kabupaten]').val(kabupaten);
-	$('#makeVote').submit();
+	if ((kecamatan === 'a') && (kabupaten === 'a')) {
+		var x = "Kami tidak dapat menemukan lokasi anda, coba refresh browser anda";
+		$('#geoerrorm').html(x);
+		$("#geoerror").addClass('active');
+	}else{
+		$('input[name=idOption]').val(idVote);
+		$('input[name=kecamatan]').val(kecamatan);
+		$('input[name=kabupaten]').val(kabupaten);
+		$('#makeVote').submit();
+	}
 }
 
 $(document).ready(function() {

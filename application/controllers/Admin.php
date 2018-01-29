@@ -93,7 +93,7 @@ class Admin extends CI_Controller {
         $data[$ke][$key] = $valu;
         $data[$ke]['idVote'] = $idVote;
         $data[$ke]['gambar'] = strtolower($idVote.basename($_FILES['gambar']['name'][$ke]));
-        move_uploaded_file($_FILES['gambar']['tmp_name'][$ke],"./upload/".$data[$ke]['gambar']);
+        move_uploaded_file($_FILES['gambar']['tmp_name'][$ke],"./upload/".$data[$ke]['gambar);
       }
     }
     $this->vote->addOption($data);

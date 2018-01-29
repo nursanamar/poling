@@ -140,6 +140,8 @@
   <script src="<?php echo base_url()."assets/js/"; ?>main.js"></script>
 </body>
 <script type="text/javascript">
+var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+console.log(conn);
   $(document).ready(function(){
     $('#vote').DataTable({
       "processing": true,

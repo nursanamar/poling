@@ -92,7 +92,7 @@ class Admin extends CI_Controller {
       foreach ($value as $ke => $valu) {
         $data[$ke][$key] = $valu;
         $data[$ke]['idVote'] = $idVote;
-        $data[$ke]['gambar'] = basename($_FILES['gambar']['name'][$ke]);
+        $data[$ke]['gambar'] = strtolower($idVote.basename($_FILES['gambar']['name'][$ke]));
         move_uploaded_file($_FILES['gambar']['tmp_name'][$ke],"./upload/".$data[$ke]['gambar']);
       }
     }
@@ -105,7 +105,8 @@ class Admin extends CI_Controller {
     $gambar = $this->vote->deleteVote($vote);
     // $this->load->helper('file');
     foreach ($gambar as $key => $value) {
-      var_dump(delete_files('./upload/'.$value['gambar']));
+      $path = './upload/'.$value['gambar'];
+      unlink($path);
     }
   }
 

@@ -34,22 +34,17 @@ class Welcome extends CI_Controller {
 	 }
 	public function index($vote = null)
 	{
-		$lastvote = $this->db->select_max('idVote')->get('vote')->result_array();
-    $vote = ($vote === null) ? $lastvote[0]['idVote'] : $vote;
-		$data['status'] = $this->vote->isOpen($vote);
-		$this->voted = ($data['status']) ? $this->voted : false;
-		$data['vote'] = $this->voted;
-		$data['kabupaten'] = ($vote === null) ? null : $this->vote->kabupaten($vote);
-		$data['data'] = $this->vote->voteList($vote);
-		$data['table'] = $this->vote->countVote($vote);
-		$data['idVote'] = $vote;
-		if (count($data['data']) <= 2) {
-			$data['col'] = 6;
-		}else {
-			$data['col'] = 4;
-		}
-		$this->load->view('client/index',$data);
+		$this->load->view('client/welcome');
 		// var_dump($this->uri->segment(2));
+	}
+
+	public function tableVote()
+	{
+		$this->load->library('datatables');
+    $this->datatables->select('nama,description,kabupaten,total,link');
+		$this->datatables->add_column("link","<a target='_blank' href='".base_url()."vote/$1' >".base_url()."vote/$1</a>",'link');
+    $this->datatables->from('vote');
+		echo $this->datatables->generate('json');
 	}
 
 	public function linkVote($link)

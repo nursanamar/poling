@@ -102,7 +102,11 @@ class Admin extends CI_Controller {
 
   public function deleteVote($vote)
   {
-    $this->vote->deleteVote($vote);
+    $gambar = $this->vote->deleteVote($vote);
+    // $this->load->helper('file');
+    foreach ($gambar as $key => $value) {
+      var_dump(delete_files('./upload/'.$value['gambar']));
+    }
   }
 
   public function closeVote($vote)

@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['coba'] = 'welcome';
+$route['tableVote'] = 'welcome/tableVote';
 $route['dovote/(:num)'] = 'welcome/makeVote/$1';
 $route['vote/(:any)'] = 'welcome/linkVote/$1';
 $route['admin'] = 'admin';

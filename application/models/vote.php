@@ -118,10 +118,19 @@ class Vote extends CI_Model {
   {
     $this->db->where('idVote',$vote);
     $this->db->delete('vote');
+
+    $this->db->select('gambar');
+    $this->db->where('idVote',$vote);
+    $this->db->from('options');
+    $gambar = $this->db->get()->result_array();
+
     $this->db->where('idVote',$vote);
     $this->db->delete('options');
+
     $this->db->where('idVote',$vote);
     $this->db->delete('pemilih');
+
+    return $gambar;
   }
 
   public function makeVote($data)
@@ -192,6 +201,6 @@ class Vote extends CI_Model {
     $this->db->set('password',$hash);
     $this->db->where('username',$user);
     $this->db->update('admin');
-    
+
   }
 }

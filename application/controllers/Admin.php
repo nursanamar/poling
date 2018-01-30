@@ -20,8 +20,11 @@ class Admin extends CI_Controller {
     $data['kecamatan'] = $this->vote->countKecamatanByVote($vote);
     $data['total'] = $this->vote->countTotalVote($vote);
     $data['table'] = $this->vote->countVote($vote);
-    $data['option'] = $this->vote->countVoteOption($vote);
-      // print_r($data['option']);
+    $option = $this->vote->countVoteOption($vote);
+    foreach ($option as $key => $value) {
+        $data['option'][$key] = number_format($value / $data['total'] * 100);
+    }
+// print_r($data['option']);
     $data['data'] = $this->vote->voteList($vote);
     $this->load->view('admin/index',$data);
   }
@@ -93,7 +96,7 @@ class Admin extends CI_Controller {
         $data[$ke][$key] = $valu;
         $data[$ke]['idVote'] = $idVote;
         $data[$ke]['gambar'] = strtolower($idVote.basename($_FILES['gambar']['name'][$ke]));
-        move_uploaded_file($_FILES['gambar']['tmp_name'][$ke],"./upload/".$data[$ke]['gambar);
+        move_uploaded_file($_FILES['gambar']['tmp_name'][$ke],"./upload/".$data[$ke]['gambar']);
       }
     }
     $this->vote->addOption($data);

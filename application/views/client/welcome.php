@@ -107,13 +107,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 text-center-mobile">
-					<h3 class="white">Lorem ipsum dolor sit amet</h3>
-					<h5 class="light regular light-white">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</h5>
 				</div>
 			</div>
 			<div class="row bottom-footer text-center-mobile">
 				<div class="col-sm-8">
-					<p>&copy; 2017 reprehenderit in voluptate velit esse cillum dolore </p>
+					<p>&copy; 2018</p>
 				</div>
 				<div id="demo">
 

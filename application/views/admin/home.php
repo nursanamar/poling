@@ -35,7 +35,7 @@
     <div class="col-md-12 col-sm-12">
       <div class="dashboard_graph x_panel">
         <div class="row x_title">
-          <h3>Grafik Vote</h3>
+          <h3>Grafik Vote (%)</h3>
         </div>
         <div class="x_content">
           <canvas id="graph"></canvas>
@@ -66,7 +66,7 @@ $(document).ready(function(){
       echo "'".$key,"',";
     } ?>],
     datasets: [{
-    label: '# of Votes',
+    label: 'persentase',
     backgroundColor: "#26B99A",
     data: [<?php foreach ($option as $value) {
       echo $value.",";

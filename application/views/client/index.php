@@ -89,9 +89,17 @@
 		<div class="container">
 			<div class="row text-center title">
 				<h2>Jumlah Vote</h2>
-				<h4 class="light muted">Perolehan Vote sementara perkecamatan</h4>
 			</div>
 			<div class="row services">
+				<div class="row text-center title">
+					<h4 class="light muted">Persentase total vote</h4>
+				</div>
+				<div class="">
+					<canvas id="graph"></canvas>
+				</div>
+				<div class="row text-center title">
+					<h4 class="light muted">Perolehan Vote sementara perkecamatan</h4>
+				</div>
 				<?php $this->load->view('client/tabel') ?>
 			</div>
 		</div>
@@ -177,6 +185,8 @@
 		<a href="#" class="close-link"><i class="arrow_up"></i></a>
 	</div>
 	<!-- Scripts -->
+	<script src="<?php echo base_url()."assets/js/"; ?>Chart.js"></script>
+
 	<script src="<?php echo base_url()."assets/js/"; ?>jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>owl.carousel.min.js"></script>
 	<script src="<?php echo base_url()."assets/js/"; ?>bootstrap.min.js"></script>
@@ -207,6 +217,33 @@ function vote(idVote) {
 }
 
 $(document).ready(function() {
+
+	var ctx = document.getElementById("graph");
+  var mybarChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [<?php foreach ($option as $key => $value) {
+      echo "'".$key,"',";
+    } ?>],
+    datasets: [{
+    label: 'persentase',
+    backgroundColor: "#26B99A",
+    data: [<?php foreach ($option as $value) {
+      echo $value.",";
+    } ?>]
+    }]
+  },
+
+  options: {
+    scales: {
+    yAxes: [{
+      ticks: {
+      beginAtZero: true
+      }
+    }]
+    }
+  }
+  });
 
 
 	if(navigator.geolocation){

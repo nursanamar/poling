@@ -58,6 +58,12 @@ class Welcome extends CI_Controller {
 		$data['data'] = $this->vote->voteList($vote);
 		$data['table'] = $this->vote->countVote($vote);
 		$data['idVote'] = $vote;
+		$data['total'] = $this->vote->countTotalVote($vote);
+
+		$option = $this->vote->countVoteOption($vote);
+    foreach ($option as $key => $value) {
+        $data['option'][$key] = number_format($value / $data['total'] * 100);
+    }
 
 		if (count($data['data']) <= 2) {
 			$data['col'] = 6;
